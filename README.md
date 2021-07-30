@@ -21,7 +21,7 @@ yarn add rc-infinite-pagination
 
 ### 基本 Basic
 
-Example: https://codesandbox.io/s/rc-infinite-pagination-example-rx32s
+Example: https://codesandbox.io/s/rc-infinite-pagination-y3xt2
 
 ```tsx
 import React from 'react'
