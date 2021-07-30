@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "noEmit": true,
+    "baseUrl": ".",
+    "allowJs": true,
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "importHelpers": true,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@gem-mine/cli-plugin-typescript/@types",
+      "./src/@types"
+    ]
+  },
+  "include": [
+    "src",
+    "./node_modules/@gem-mine/cli-plugin-typescript/@types"
+  ]
+}

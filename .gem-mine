@@ -1,0 +1,10 @@
+{
+  "version": "3.0.1",
+  "template_id": "component",
+  "name": "rc-infinite-pagination",
+  "env": "{\"cli_version\":\"2.21.1\",\"npm_version\":\"6.12.0\",\"node_version\":\"v12.18.3\"}",
+  "user": "hollton",
+  "email": "holltonliu@163.com",
+  "choice": "{\"templateId\":\"component\",\"packageManager\":\"npm\",\"registry\":\"http://registry.npmjs.org\",\"features\":[\"ts\"],\"ui\":\"\",\"sass\":true}",
+  "project_id": "39824250-f114-11eb-9648-63200abe8a4b_1627635473141"
+}

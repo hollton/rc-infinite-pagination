@@ -1,0 +1,51 @@
+{
+  "name": "rc-infinite-pagination",
+  "version": "0.0.1",
+  "description": "A React infinite pagination component that without total.（无分页总数的 React 无限分页组件）",
+  "main": "dist/rc-infinite-pagination.common.min",
+  "typings": "dist/types/export/index.d.ts",
+  "files": [
+    "dist/**/*.*"
+  ],
+  "scripts": {
+    "start": "gms dev",
+    "build": "gms build --target=lib --excludeReact --entry=src/export/index --formats=commonjs",
+    "lint": "gms lint",
+    "lint:fix": "gms lint --fix"
+  },
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "@gem-mine/babel-preset-app": "^3.2.6",
+    "@gem-mine/cli-plugin-composite": "^1.0.0",
+    "@gem-mine/cli-plugin-eslint": "^4.0.0",
+    "@gem-mine/cli-plugin-typescript": "^4.0.0",
+    "@gem-mine/eslint-config-recommend-ts": "^5.0.0",
+    "@gem-mine/script": "^3.0.1",
+    "@types/node": "14.0.17",
+    "@types/react-loadable": "^5.5.0",
+    "@types/webpack-env": "1.15.3",
+    "copyfiles": "^2.4.1",
+    "eslint": "^7.5.0",
+    "sass": "^1.26.8",
+    "sass-loader": "^8.0.2",
+    "typescript": "~4.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hollton/rc-infinite-pagination.git"
+  },
+  "author": "holltonliu@163.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hollton/rc-infinite-pagination/issues"
+  },
+  "homepage": "https://github.com/hollton/rc-infinite-pagination#readme",
+  "keywords": [
+    "react",
+    "pagination",
+    "without total"
+  ]
+}
