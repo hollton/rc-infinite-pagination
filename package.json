@@ -1,6 +1,6 @@
 {
   "name": "rc-infinite-pagination",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A React infinite pagination component that without total.（无分页总数的 React 无限分页组件）",
   "main": "dist/rc-infinite-pagination.common.min",
   "typings": "dist/types/index.d.ts",
