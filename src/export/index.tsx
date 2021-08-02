@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.scss'
 
-interface PaginationProps {
+export interface PaginationProps {
   current?: number;
   pageSize?: number;
   pageLength?: number;
