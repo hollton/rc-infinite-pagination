@@ -75,7 +75,7 @@ const App = () => {
 };
 ```
 
-### 自定义类名 Customize className
+### 自定义类名 Customize className: "float right"
 
 ```tsx
 import InfinitePagination from 'rc-infinite-pagination'
@@ -104,7 +104,7 @@ const App = () => {
 | pageData      | Array             | 每页数据 data items per page                                              | []                     |
 | className     | String            | 分页容器类名 The class name of the container of the pagination n          | -                      |
 | onChange      | (current) => void | 页码改变的回调 The callback executed when the page number is changed       | -                      |
-| prevText      | ReactNode         | 上一页文字 The text of the previous page                                  | `<span>&lt;</span>`     |
-| nextText      | ReactNode         | 下一页文字 The text of the next page                                      | `<span>&gt;</span>`     |
+| prevText      | ReactNode         | 上一页文字 The text of the previous page                                  | `<>&lt;</>`     |
+| nextText      | ReactNode         | 下一页文字 The text of the next page                                      | `<>&lt;</>`     |
 | prev          | ReactNode         | 自定义渲染上一页按钮 The component to render the previous button           | -                      |
 | next          | ReactNode         | 自定义渲染下一页按钮 The component to render the next button               | -                      |

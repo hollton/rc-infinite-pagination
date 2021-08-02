@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, cloneElement, isValidElement } from 'react'
 import './index.scss'
 
 export interface PaginationProps {
@@ -18,8 +18,8 @@ const InfinitePagination = ({
   pageSize = 10,
   pageData = [],
   className = '',
-  prevText = <span>&lt;</span>,
-  nextText = <span>&gt;</span>,
+  prevText = <>&lt;</>,
+  nextText = <>&gt;</>,
   ...props
 }: PaginationProps) => {
   const {
@@ -41,30 +41,42 @@ const InfinitePagination = ({
 
   const handleChange = (type: number) => {
     if (loading) return
-    handleLoading(true)
     if ((type === -1 && isFirstPage()) || (type === 1 && isLastPage())) return
     const nextNo = current + 1 * type
+    handleLoading(true)
     onChange?.(nextNo)
   }
 
   const renderPrev = () => (
     <li
-      className={`pagination-item pagination-prev ${isFirstPage() ? 'disabled' : ''}`}
+      className="pagination-item pagination-prev"
       onClick={() => handleChange(-1)}
     >
       {
-        prev === undefined ? <span>{prevText}</span> : prev
+        prev === undefined ? (
+          <button
+            className={`pagination-item-link ${isFirstPage() ? 'pagination-item-disabled' : ''}`}
+          >
+            {prevText}
+          </button>
+        ) : (isValidElement(prev) ? cloneElement(prev, { disabled: isFirstPage() }) : prev)
       }
     </li>
   )
 
   const renderNext = () => (
     <li
-      className={`pagination-item pagination-next ${isLastPage() ? 'disabled' : ''}`}
+      className="pagination-item pagination-next"
       onClick={() => handleChange(1)}
     >
       {
-        next === undefined ? <span>{nextText}</span> : next
+        next === undefined ? (
+          <button
+            className={`pagination-item-link ${isLastPage() ? 'pagination-item-disabled' : ''}`}
+          >
+            {nextText}
+          </button>
+        ) : (isValidElement(next) ? cloneElement(next, { disabled: isLastPage() }) : next)
       }
     </li>
   )
@@ -72,7 +84,9 @@ const InfinitePagination = ({
   return (
     <ul className={`pagination ${className}`}>
       {renderPrev()}
-      <li className="pagination-item active">{current}</li>
+      <li className="pagination-item">
+        <button className="pagination-item-link pagination-item-active">{current}</button>
+      </li>
       {renderNext()}
     </ul>
   )

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import InfinitePagination from './export'
+import './index.scss'
 
 function App() {
   const [current, handleCurrent] = useState(1)
@@ -22,9 +23,9 @@ function App() {
     getList(curr)
   }
 
-  const prev = <button style={{ height: '100%' }}>prev</button>
+  const prev = <a>prev</a>
 
-  const next = <button style={{ height: '100%' }}>next</button>
+  const next = <a>next</a>
 
   return (
     <div className="App">
