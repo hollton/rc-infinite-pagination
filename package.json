@@ -1,15 +1,15 @@
 {
   "name": "rc-infinite-pagination",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "A React infinite pagination component that without total.（无分页总数的 React 无限分页组件）",
-  "main": "dist/rc-infinite-pagination.common",
+  "main": "dist/rc-infinite-pagination.common.min",
   "typings": "dist/types/index.d.ts",
   "files": [
     "dist/**/*.*"
   ],
   "scripts": {
     "start": "gms dev",
-    "build": "gms build --target=lib --excludeReact --entry=src/export/index --formats=commonjs",
+    "build": "gms build --target=lib --excludeReact --entry=src/export/index --formats=commonjs-min",
     "lint": "gms lint",
     "lint:fix": "gms lint --fix"
   },

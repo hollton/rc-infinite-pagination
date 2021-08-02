@@ -4,7 +4,6 @@ import InfinitePagination from './export'
 function App() {
   const [current, handleCurrent] = useState(1)
   const [pageData, handlePageData] = useState([] as any)
-  const [loading, handleLoading] = useState(false)
   const pageSize = 10
 
   const getList = async (curr: number) => {
@@ -18,30 +17,32 @@ function App() {
     getList(current)
   }, [])
 
-  useEffect(() => {
-    handleLoading(false)
-  }, [pageData])
-
   const handleChange = (curr: number) => {
-    if (loading) return
-    handleLoading(true)
     handleCurrent(curr)
     getList(curr)
   }
+
+  const prev = <button style={{ height: '100%' }}>prev</button>
+
+  const next = <button style={{ height: '100%' }}>next</button>
 
   return (
     <div className="App">
       <ul>
         {
-          pageData.map((item: any) => <li>{item.character}</li>)
+          pageData?.map((item: any) => <li>{item.character}</li>)
         }
       </ul>
       <InfinitePagination
         current={current}
-        disableChange={loading}
-        onChange={handleChange}
-        pageLength={pageData?.length}
         pageSize={pageSize}
+        pageData={pageData}
+        className="customizeClassName"
+        onChange={handleChange}
+        prevText="prev"
+        nextText="next"
+        prev={prev}
+        next={next}
       />
     </div>
   )

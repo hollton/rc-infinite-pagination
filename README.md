@@ -19,12 +19,11 @@ yarn add rc-infinite-pagination
 
 ## 示例 Usage
 
-### 基本 Basic
-
 Example: https://codesandbox.io/s/rc-infinite-pagination-y3xt2
 
+### 基本 Basic
+
 ```tsx
-import React from 'react'
 import InfinitePagination from 'rc-infinite-pagination'
 
 const App = () => {
@@ -32,7 +31,63 @@ const App = () => {
     <InfinitePagination
       current={current}
       onChange={handleChange}
-      pageLength={pageData?.length}
+      pageData={pageData}
+    />
+  );
+};
+```
+
+### 自定义文本 Customize text
+
+```tsx
+import InfinitePagination from 'rc-infinite-pagination'
+
+const App = () => {
+  return (
+    <InfinitePagination
+      current={current}
+      onChange={handleChange}
+      pageData={pageData}
+      pageSize={pageSize}
+      prevText="prev"
+      nextText="next"
+    />
+  );
+};
+```
+
+### 自定义上、下页结构 Customize prev and next
+
+```tsx
+import InfinitePagination from 'rc-infinite-pagination'
+
+const App = () => {
+  return (
+    <InfinitePagination
+      current={current}
+      onChange={handleChange}
+      pageData={pageData}
+      pageSize={pageSize}
+      prev={prev}
+      next={next}
+    />
+  );
+};
+```
+
+### 自定义类名 Customize className
+
+```tsx
+import InfinitePagination from 'rc-infinite-pagination'
+
+const App = () => {
+  return (
+    <InfinitePagination
+      current={current}
+      onChange={handleChange}
+      pageData={pageData}
+      pageSize={pageSize}
+      className="fr"
     />
   );
 };
@@ -46,11 +101,9 @@ const App = () => {
 | ------------- | ----------------- | ------------------------------------------------------------------------ | ---------------------- |
 | current       | Number            | 当前页数 The current number of pages                                      | 1                      |
 | pageSize      | Number            | 每页应展示条数 The number of items should be displayed per page           | 10                     |
-| pageLength    | Number            | 每页数据条数 Number of data items per page                                | 0                      |
-| wrapClassName | String            | 分页容器类名 The class name of the container of the pagination n          | 'pagination'           |
-| itemClassName | String            | 页项类名 The class name of the page item                                  | 'pagination-item'      |
+| pageData      | Array             | 每页数据 data items per page                                              | []                     |
+| className     | String            | 分页容器类名 The class name of the container of the pagination n          | -                      |
 | onChange      | (current) => void | 页码改变的回调 The callback executed when the page number is changed       | -                      |
-| disableChange | boolean           | 是否禁用翻页，请求时，可设为true Whether to disable page turning for fetch  | false                  |
 | prevText      | ReactNode         | 上一页文字 The text of the previous page                                  | `<span>&lt;</span>`     |
 | nextText      | ReactNode         | 下一页文字 The text of the next page                                      | `<span>&gt;</span>`     |
 | prev          | ReactNode         | 自定义渲染上一页按钮 The component to render the previous button           | -                      |

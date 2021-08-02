@@ -1,13 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './index.scss'
 
 export interface PaginationProps {
   current?: number;
   pageSize?: number;
-  pageLength?: number;
-  wrapClassName?: string;
-  itemClassName?: string;
-  disableChange?: boolean;
+  pageData?: Array<any>;
+  className?: string;
   onChange?: (current: number) => void;
   prevText?: React.ReactNode;
   nextText?: React.ReactNode;
@@ -18,27 +16,32 @@ export interface PaginationProps {
 const InfinitePagination = ({
   current = 1,
   pageSize = 10,
-  pageLength = 0,
-  wrapClassName = 'pagination',
-  itemClassName = 'pagination-item',
+  pageData = [],
+  className = '',
   prevText = <span>&lt;</span>,
   nextText = <span>&gt;</span>,
   ...props
 }: PaginationProps) => {
   const {
-    onChange, prev, next, disableChange
+    onChange, prev, next
   } = props
+  const [loading, handleLoading] = useState(false)
+
+  useEffect(() => {
+    handleLoading(false)
+  }, [pageData])
 
   const isFirstPage = () => (
     current <= 1
   )
 
   const isLastPage = () => (
-    pageLength < pageSize
+    pageData?.length < pageSize
   )
 
   const handleChange = (type: number) => {
-    if (disableChange) return
+    if (loading) return
+    handleLoading(true)
     if ((type === -1 && isFirstPage()) || (type === 1 && isLastPage())) return
     const nextNo = current + 1 * type
     onChange?.(nextNo)
@@ -46,7 +49,7 @@ const InfinitePagination = ({
 
   const renderPrev = () => (
     <li
-      className={`${itemClassName} pagination-prev ${isFirstPage() ? 'disabled' : ''}`}
+      className={`pagination-item pagination-prev ${isFirstPage() ? 'disabled' : ''}`}
       onClick={() => handleChange(-1)}
     >
       {
@@ -57,7 +60,7 @@ const InfinitePagination = ({
 
   const renderNext = () => (
     <li
-      className={`${itemClassName} pagination-next ${isLastPage() ? 'disabled' : ''}`}
+      className={`pagination-item pagination-next ${isLastPage() ? 'disabled' : ''}`}
       onClick={() => handleChange(1)}
     >
       {
@@ -67,9 +70,9 @@ const InfinitePagination = ({
   )
 
   return (
-    <ul className={wrapClassName}>
+    <ul className={`pagination ${className}`}>
       {renderPrev()}
-      <li className={`${itemClassName} active`}>{current}</li>
+      <li className="pagination-item active">{current}</li>
       {renderNext()}
     </ul>
   )
