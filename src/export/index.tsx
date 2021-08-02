@@ -36,7 +36,7 @@ const InfinitePagination = ({
   )
 
   const isLastPage = () => (
-    pageData?.length < pageSize
+    pageSize > (pageData?.length || 0)
   )
 
   const handleChange = (type: number) => {
