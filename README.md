@@ -1,4 +1,4 @@
-# rc-infinite-pagination
+# rc-infinite-pagination 无限分页组件
 
 ![](https://flat.badgen.net/npm/v/rc-infinite-pagination)
 ![](https://flat.badgen.net/bundlephobia/minzip/rc-infinite-pagination)
@@ -7,7 +7,9 @@
 
 rc-infinite-pagination is a infinite pagination component for React that doesn't require total page or count. You don't care about how many pages in a given list view, and just go-to-next and so forth till there's no data shown.
 
-![](screenshot.gif)
+rc-infinite-pagination是React的无限分页组件，它不需要分页总数。你不需要关心列表页面中有多少数据，只需要前后翻页，直到没有显示数据为止。
+
+![screenshot](https://github.com/hollton/rc-infinite-pagination/blob/master/screenshot.gif)
 
 ## 安装 Install
 
