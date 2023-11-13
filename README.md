@@ -95,6 +95,24 @@ const App = () => {
 };
 ```
 
+### 首页按钮 First Page (1.0.9+)
+
+```tsx
+import InfinitePagination from 'rc-infinite-pagination'
+
+const App = () => {
+  return (
+    <InfinitePagination
+      current={current}
+      onChange={handleChange}
+      pageData={pageData}
+      pageSize={pageSize}
+      first={<a>first</a>}
+    />
+  );
+};
+```
+
 ## API
 
 ### 参数 Props
@@ -110,3 +128,4 @@ const App = () => {
 | nextText      | ReactNode         | 下一页文字 The text of the next page                                      | `<>&lt;</>`     |
 | prev          | ReactNode         | 自定义渲染上一页按钮 The component to render the previous button           | -                      |
 | next          | ReactNode         | 自定义渲染下一页按钮 The component to render the next button               | -                      |
+| first         | ReactNode         | 自定义渲染首页按钮 The component to render the first button                | -                      |

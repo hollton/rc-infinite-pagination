@@ -23,8 +23,8 @@ function App() {
     getList(curr)
   }
 
+  const first = <a>first</a>
   const prev = <a>prev</a>
-
   const next = <a>next</a>
 
   return (
@@ -44,6 +44,7 @@ function App() {
         nextText="next"
         prev={prev}
         next={next}
+        first={first}
       />
     </div>
   )

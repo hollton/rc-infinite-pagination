@@ -11,6 +11,7 @@ export interface PaginationProps {
   nextText?: React.ReactNode;
   prev?: React.ReactNode;
   next?: React.ReactNode;
+  first?: React.ReactNode;
 }
 
 const InfinitePagination = ({
@@ -23,7 +24,7 @@ const InfinitePagination = ({
   ...props
 }: PaginationProps) => {
   const {
-    onChange, prev, next
+    onChange, prev, next, first
   } = props
   const [loading, handleLoading] = useState(false)
 
@@ -46,6 +47,17 @@ const InfinitePagination = ({
     handleLoading(true)
     onChange?.(nextNo)
   }
+
+  const renderFrist = () => !!first && (
+    <li
+      className="pagination-item pagination-first"
+      onClick={() => onChange?.(1)}
+    >
+      {
+        isValidElement(first) ? cloneElement(first, { disabled: isFirstPage() }) : first
+      }
+    </li>
+  )
 
   const renderPrev = () => (
     <li
@@ -83,6 +95,7 @@ const InfinitePagination = ({
 
   return (
     <ul className={`pagination ${className}`}>
+      {renderFrist()}
       {renderPrev()}
       <li className="pagination-item">
         <button className="pagination-item-link pagination-item-active">{current}</button>
